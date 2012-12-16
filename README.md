@@ -37,6 +37,10 @@ $target = new Target(__DIR__.'/../cnf', 'dev/foo');
 $kernel = new AppKernel($target);
 ```
 
+Target `dev/foo` means the app will be bootstrapped with mode `dev` and subtarget `foo`.
+
+This will, besides loading the `app/config/config_dev.yml` configuration, also load the `cnf/dev/foo/config.yml` configuration. 
+
 ## Copyright
 
 hoppinger/config-kernel is licensed under the MIT license.    
