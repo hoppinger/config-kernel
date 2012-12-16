@@ -31,4 +31,8 @@ class TestKernel extends Kernel
     {
         return parent::getDebugModes();
     }
+
+    public function init()
+    {
+    }
 }

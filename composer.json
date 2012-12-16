@@ -20,8 +20,9 @@
     "require": {
         "php": ">=5.3.3",
        	"hoppinger/config-target": "*",
-        "symfony/http-kernel": "*",
-        "symfony/class-loader": "*",
-        "symfony/config": "*"
+        "symfony/http-kernel": "*"
+    },
+    "require-dev": {
+        "symfony/config": "*"    
     }
 }

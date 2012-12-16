@@ -19,7 +19,11 @@ class KernelTest extends \PHPUnit_Framework_TestCase
 {
     public function testRegisterContainerConfiguration()
     {
-        $target = new Target(__DIR__, 'dev/foo');
+        if (!class_exists('Symfony\Component\Config\Loader\Loader')) {
+            $this->markTestSkipped();
+        }
+
+        $target = new Target(__DIR__, 'prod/foo');
         $kernel = new TestKernel($target);
         $loader = $this->getMock('Symfony\Component\Config\Loader\Loader');
         $loader->expects($this->exactly(2))
@@ -27,7 +31,7 @@ class KernelTest extends \PHPUnit_Framework_TestCase
 
         $root = __DIR__.DIRECTORY_SEPARATOR.'Fixtures';
 
-        $loader->expects($this->at(0))->method('load')->with(__DIR__.DIRECTORY_SEPARATOR.'Fixtures'.DIRECTORY_SEPARATOR.'config'.DIRECTORY_SEPARATOR.'config_dev.yml');
+        $loader->expects($this->at(0))->method('load')->with(__DIR__.DIRECTORY_SEPARATOR.'Fixtures'.DIRECTORY_SEPARATOR.'config'.DIRECTORY_SEPARATOR.'config_prod.yml');
         $loader->expects($this->at(1))->method('load')->with($target->getTargetDir().DIRECTORY_SEPARATOR.'config.yml');
 
         $kernel->registerContainerConfiguration($loader);
@@ -35,13 +39,13 @@ class KernelTest extends \PHPUnit_Framework_TestCase
 
     public function testGetKernelParameters()
     {
-        $target = new Target(__DIR__, 'dev/foo');
+        $target = new Target(__DIR__, 'prod/foo');
         $kernel = new TestKernel($target);
 
         $parameters = $kernel->getKernelParameters();
 
         $this->assertArrayHasKey('kernel.cnf.target', $parameters);
-        $this->assertEquals('dev/foo', $parameters['kernel.cnf.target']);
+        $this->assertEquals('prod/foo', $parameters['kernel.cnf.target']);
         $this->assertArrayHasKey('kernel.cnf.root_dir', $parameters);
         $this->assertEquals($target->getRootDir(), $parameters['kernel.cnf.root_dir']);
         $this->assertArrayHasKey('kernel.cnf.target_dir', $parameters);
@@ -50,7 +54,7 @@ class KernelTest extends \PHPUnit_Framework_TestCase
 
     public function testDebugModes()
     {
-        $kernel = new TestKernel(new Target(__DIR__, 'dev/foo'));
+        $kernel = new TestKernel(new Target(__DIR__, 'prod/foo'));
         $this->assertEquals(array('dev'), $kernel->getDebugModes());
     }
 
