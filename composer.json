@@ -1,0 +1,27 @@
+{
+    "name": "hoppinger/config-kernel",
+    "description": "Symfony HTTP Kernel to use with Hoppinger's cnf/target configuration paradigm",
+    "keywords": ["symfony", "http-kernel"],
+    "homepage": "http://www.hoppinger.com",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Hoppinger B.V.",
+            "email": "info@hoppinger.com",
+            "homepage": "http://www.hoppinger.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-0": {
+            "Hop\\Config\\Kernel": "src"
+        }
+    },   
+    "require": {
+        "php": ">=5.3.3",
+       	"hoppinger/config-target": "*",
+        "symfony/http-kernel": "*",
+        "symfony/class-loader": "*",
+        "symfony/config": "*"
+    }
+}
