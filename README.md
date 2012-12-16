@@ -2,6 +2,8 @@
 
 A Symfony [HTTP Kernel](https://github.com/symfony/HttpKernel) implementation to use with Hoppinger's cnf/target configuration paradigm.
 
+[![Build Status](https://travis-ci.org/hoppinger/config-kernel.png?branch=master)](https://travis-ci.org/hoppinger/config-kernel)
+
 ## Usage
 
 When using the [Symfony Standard Edition](https://github.com/symfony/symfony-standard), make `app/AppKernel.php` and `web/app.php` look something like this:
