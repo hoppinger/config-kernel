@@ -21,7 +21,7 @@ class AppKernel extends Kernel
 // web/app.php
 
 require_once __DIR__.'/../app/AppKernel.php';
-$target = new Target(__DIR__, 'dev/foo');
+$target = new Target(__DIR__.'/cnf', 'dev/foo');
 $kernel = new AppKernel($target);
 ```
 
