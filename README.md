@@ -30,6 +30,7 @@ class AppKernel extends Kernel
 
 ```php
 // web/app.php
+use Hop\Config\Target\Target;
 
 require_once __DIR__.'/../app/AppKernel.php';
 $target = new Target(__DIR__.'/../cnf', 'dev/foo');
