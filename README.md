@@ -39,7 +39,7 @@ $kernel = new AppKernel($target);
 
 Target `dev/foo` means the app will be bootstrapped with mode `dev` and subtarget `foo`.
 
-This will, besides loading the `app/config/config_dev.yml` configuration, also load the `cnf/dev/foo/config.yml` configuration. 
+This will, besides loading the `app/config/config_dev.yml` configuration, also load the `cnf/targets/dev/foo/config.yml` configuration. 
 
 ## Copyright
 
