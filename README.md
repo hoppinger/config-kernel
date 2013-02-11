@@ -28,7 +28,7 @@ class AppKernel extends Kernel
 }
 ```
 
-Also remove the `AppKernel::registerContainerConfiguration` method, Hop\Config\Kernel\Kernel takes care of this.
+Also remove the `AppKernel::registerContainerConfiguration` method, `Hop\Config\Kernel\Kernel` takes care of this.
 
 ```php
 // web/app.php
