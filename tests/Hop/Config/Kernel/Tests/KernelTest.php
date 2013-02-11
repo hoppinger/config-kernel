@@ -81,4 +81,11 @@ class KernelTest extends \PHPUnit_Framework_TestCase
         $kernel = new TestKernel(new Target(__DIR__, 'prod/foo'), true);
         $this->assertTrue($kernel->isDebug());
     }
+    
+    public function testSerialize()
+    {
+        $kernel  = new TestKernel(new Target(__DIR__, 'prod/foo'));
+        $kernel2 = unserialize(serialize($kernel));
+        $this->assertEquals($kernel, $kernel2);
+    }
 }

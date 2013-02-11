@@ -85,4 +85,16 @@ abstract class Kernel extends BaseKernel
             'dev',
         );
     }
+    
+    public function serialize()
+    {
+        return serialize(array($this->target, $this->debug));
+    }
+
+    public function unserialize($data)
+    {
+        list($target, $debug) = unserialize($data);
+        
+        $this->__construct($target, $debug);
+    }
 }
