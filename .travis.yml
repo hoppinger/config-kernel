@@ -12,7 +12,8 @@ env:
   - SYMFONY_VERSION=dev-master
   
 before_script:
-  - composer require symfony/http-kernel:${SYMFONY_VERSION} symfony/config:${SYMFONY_VERSION} --no-update
+  - composer require symfony/http-kernel:${SYMFONY_VERSION} --no-update
+  - composer require symfony/config:${SYMFONY_VERSION} --no-update --dev
   - composer install --dev
 
 script:
