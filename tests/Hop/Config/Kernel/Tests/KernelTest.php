@@ -88,4 +88,13 @@ class KernelTest extends \PHPUnit_Framework_TestCase
         $kernel2 = unserialize(serialize($kernel));
         $this->assertEquals($kernel, $kernel2);
     }
+    
+    // Some symfony components use the environment and debug getters to construct a new kernel
+    public function testEnvironmentCanBeUsedAsParam()
+    {
+        $kernel  = new TestKernel(new Target(__DIR__, 'prod/foo'));
+        $kernel2 = new TestKernel($kernel->getEnvironment(), $kernel->isDebug());
+        
+        $this->assertEquals($kernel, $kernel2);
+    }
 }

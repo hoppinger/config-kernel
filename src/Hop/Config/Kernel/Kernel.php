@@ -49,7 +49,15 @@ abstract class Kernel extends BaseKernel
         $loader->load($this->rootDir.DIRECTORY_SEPARATOR.'config'.DIRECTORY_SEPARATOR.'config_'.$this->target->getMode().'.yml');
         $loader->load($this->target->getTargetDir().DIRECTORY_SEPARATOR.'config.yml');
     }
-
+    
+    /**
+     * {@inheritDoc}
+     */
+    public function getEnvironment()
+    {
+        return $this->target;
+    }
+    
     /**
      * {@inheritDoc}
      */
